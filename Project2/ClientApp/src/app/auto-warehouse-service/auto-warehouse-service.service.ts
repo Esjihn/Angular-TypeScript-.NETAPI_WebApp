@@ -11,4 +11,9 @@ export class AutoWarehouseServiceService {
   constructor(private http: HttpClient) {
 
   }
+
+  getAutoParts() {
+    const route = 'getautoparts';
+    return this.http.get("");
+  }
 }
