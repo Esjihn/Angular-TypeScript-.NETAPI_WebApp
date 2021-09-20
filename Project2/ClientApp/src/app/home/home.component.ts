@@ -16,14 +16,14 @@ export class HomeComponent {
   queryList(event: any) {
     console.log(this.queryStr);
 
-    // sanitize query
+    // Sanitize query
     for (let character of this.queryStr) {
       if (character === 'patternMatching') {
         this.queryStr.replace(character, '');
       }
     }
 
-    // filter data on sanitized query.
+    // Filter data on sanitized query.
     this.model.parts = this.model.parts.filter(str =>
       str.indexOf(this.queryStr) === -1);
 
