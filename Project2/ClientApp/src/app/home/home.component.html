@@ -1,0 +1,25 @@
+<h1>Code Injection Test</h1>
+<form class="example-form" #homeComponentForm="ngForm">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Car Parts List</mat-label>
+    <input matInput
+           placeholder="Ex. Wheel or Tire"
+           name="carInput"
+           [(ngModel)]="queryStr">
+  </mat-form-field>
+
+  <mat-form-field style="width: 300px" appearance="fill">
+    <mat-label>Auto Parts from Database</mat-label>
+    <mat-select >
+      <mat-option
+        *ngFor="let car of model.parts"
+        value="car">
+        {{car}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button
+          color="primary"
+          (click)="queryList($event)">Submit</button>
+</form>
