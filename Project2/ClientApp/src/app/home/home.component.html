@@ -8,15 +8,17 @@
            [(ngModel)]="queryStr">
   </mat-form-field>
 
-  <mat-form-field style="width: 300px" appearance="fill">
-    <mat-label>Auto Parts from Database</mat-label>
-    <mat-select >
-      <mat-option value="autoPartId">{{model.autoPartId}}</mat-option>
-      <mat-option value="partName">{{model.partName}}</mat-option>
-      <mat-option value="lastModifiedBy">{{model.lastModifiedBy}}</mat-option>
-      <mat-option value="lastModifiedDate">{{model.lastModifiedDate}}</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <div *ngFor="let part of model">
+    <mat-form-field style="width: 300px" appearance="fill">
+      <mat-label>Auto Parts from Database</mat-label>
+      <mat-select>
+        <mat-option>{{part.autoPartId}}</mat-option>
+        <mat-option>{{part.partName}}</mat-option>
+        <mat-option>{{part.lastModifiedBy}}</mat-option>
+        <mat-option>{{part.lastModifiedDate}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 
   <button mat-raised-button
           color="primary"

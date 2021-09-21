@@ -9,7 +9,7 @@ import { AutoPart } from "../../assets/AutoPart";
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  model: AutoPart = new AutoPart();
+  model: AutoPart[] = [];
   queryStr: string = '';
   constructor(private autoPartsService: AutoWarehouseServiceService) {  }
 
@@ -28,11 +28,9 @@ export class HomeComponent {
     }
 
     this.autoPartsService.getAutoParts().subscribe((data => {
+      this.model = data;
+
       console.log(data);
-      this.model.autoPartId = data[0].autoPartId;
-      this.model.partName = data[0].partName;
-      this.model.lastModifiedBy = data[0].lastModifiedBy;
-      this.model.lastModifiedDate = data[0].lastModifiedDate;
       console.log(this.model);
     }));
 
